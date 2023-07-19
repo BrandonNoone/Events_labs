@@ -1,0 +1,27 @@
+{% extends 'base.jinja' %} 
+
+{% block content %}
+    <h1>{{ title }}</h1>
+    
+
+    <form action="/events" method="post">
+        <label for="events">Event name</label>
+        <input type="text" name="events" id="events">
+        <label for="date">Event date</label>
+        <input type="date"name="date" id="date">
+        <label for="guest">Guest</label>
+        <input type="text" name="guest"id="guest">
+        <label for="location">location</label>
+        <input type="text" name="location"id="location">
+        <label for="description">description</label>
+        <textarea name="description" id="description" cols="30" rows="1" placeholder="text here" ></textarea>
+        <input type="Submit" value="Add Events">
+    </form>
+<ul>
+    {% for event in event_list %}
+        <li>{{ event.name }}: {{ event.date }}: {{ event.number_of_guests }}: {{ event.location }}: {{ event.description }}</li>
+    {% endfor %}
+    </ul>
+
+
+{% endblock content %}
